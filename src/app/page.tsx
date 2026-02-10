@@ -262,19 +262,40 @@ const Page = () => {
     <div className="bg-[#0D0D0D] text-[#E5E5E5] selection:bg-[#C5A059] selection:text-black min-h-screen">
       
       {/* NAVBAR */}
-      <nav className="fixed top-0 w-full z-[100] px-6 md:px-16 py-6 flex justify-between items-center bg-black/10 backdrop-blur-lg border-b border-white/5">
-        <div className="hidden lg:flex gap-10 text-[10px] uppercase tracking-[0.4em] font-medium">
-          <button onClick={handleGoToHome} className="hover:text-[#C5A059] transition-colors flex items-center gap-2">
-            <Home size={14} /> Home
-          </button>
-          <button onClick={() => scrollToSection('services')} className="hover:text-[#C5A059] transition-colors">Services</button>
-          <button onClick={() => scrollToSection('menu')} className="hover:text-[#C5A059] transition-colors">Menu</button>
-          <button onClick={() => scrollToSection('blog')} className="hover:text-[#C5A059] transition-colors">Blog</button>
-          <button onClick={() => scrollToSection('contact')} className="hover:text-[#C5A059] transition-colors">
-  Contact
-</button>
+      <nav className="fixed top-0 w-full z-[100] px-6 md:px-16 py-5 flex justify-between items-center bg-black/10 backdrop-blur-lg border-b border-white/5">
+       <div className="hidden lg:flex gap-6 text-[10px] uppercase tracking-[0.4em] font-medium items-center">
+  <button 
+    onClick={handleGoToHome} 
+    className=" py-2 hover:bg-[#B38B4D] hover:text-white transition-all duration-300 flex items-center gap-2 rounded-sm"
+  >
+    <Home size={14} /> Home
+  </button>
 
-        </div>
+  <button 
+    onClick={() => scrollToSection('services')} 
+    className="px-1 py-2 hover:bg-[#B38B4D] hover:text-white transition-all duration-300 rounded-sm">Services</button>
+
+  <button 
+    onClick={() => scrollToSection('menu')} 
+    className="px-1 py-2 hover:bg-[#B38B4D] hover:text-white transition-all duration-300 rounded-sm"
+  >
+    Menu
+  </button>
+
+  <button 
+    onClick={() => scrollToSection('blog')} 
+    className="px-1 py-2 hover:bg-[#B38B4D] hover:text-white transition-all duration-300 rounded-sm"
+  >
+    Blog
+  </button>
+
+  <button 
+    onClick={() => scrollToSection('contact')} 
+    className="px-1 py-2 hover:bg-[#B38B4D] hover:text-white transition-all duration-300 rounded-sm"
+  >
+    Contact
+  </button>
+</div>
 
         <button className="lg:hidden text-[#C5A059]" onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}>
           {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
@@ -283,7 +304,7 @@ const Page = () => {
         <motion.div 
           initial={{ opacity: 0 }} animate={{ opacity: 1 }} 
           onClick={handleGoToHome}
-          className="text-2xl md:text-3xl font-serif tracking-[0.3em] text-[#C5A059] cursor-pointer"
+          className="text-2xl md:text-4xl font-serif tracking-[0.3em] text-[#C5A059] cursor-pointer"
         >
           LUXDIN
         </motion.div>
@@ -345,7 +366,7 @@ const Page = () => {
       </section>
 
       {/* ABOUT/SERVICES SECTION */}
-      <section id="services" className="py-32 px-6 md:px-24 bg-white text-black">
+      <section id="services" className="py-32 px-6 md:px-24 bg-white/80 text-black">
         <div className="max-w-7xl mx-auto">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-24 items-center mb-32">
             <motion.div initial={{ opacity: 0, x: -50 }} whileInView={{ opacity: 1, x: 0 }} transition={{ duration: 1 }} viewport={{ once: true }} className="space-y-8">
@@ -410,7 +431,7 @@ const Page = () => {
       </section>
 
       {/* MENU SECTION */}
-      <section id="menu" className="py-32 px-6 md:px-24 bg-[#0a0a0a]">
+      <section id="menu" className="py-32 px-6 md:px-24 bg-white/0">
         <div className="flex flex-col items-center text-center mb-20">
            <h2 className="text-4xl md:text-5xl font-serif mb-6 italic text-[#C5A059]">The Signature Menu</h2>
            <div className="flex flex-wrap justify-center gap-4 md:gap-12 border-b border-white/5 w-full max-w-4xl pb-4">
@@ -444,7 +465,7 @@ const Page = () => {
         </div>
       </section>
 
-     <section id="blog" className="py-32 px-6 md:px-24 bg-white text-black overflow-hidden">
+     <section id="blog" className="py-32 px-6 md:px-24 bg-blue-50 text-black overflow-hidden">
         <div className="max-w-7xl mx-auto">
           <div className="flex flex-col md:flex-row justify-between items-end mb-20 gap-8">
             <div className="space-y-4">
@@ -512,23 +533,29 @@ const Page = () => {
           </div>
 
           {/* Customer Message Section */}
-          <motion.div 
-            initial={{ opacity: 0 }} 
-            whileInView={{ opacity: 1 }}
-            viewport={{ once: true }}
-            className="mt-32 bg-[#F9F7F2] p-12 md:p-20 text-center relative border border-black/5"
-          >
-            <div className="max-w-3xl mx-auto space-y-8">
-              <Star className="text-[#C5A059] mx-auto mb-4" fill="currentColor" size={24} />
-              <h4 className="text-3xl md:text-4xl font-serif italic leading-snug text-black">
-                "Our mission is to create a symphony of flavors that resonates long after your final bite."
-              </h4>
-              <div className="pt-6">
-                <p className="text-[10px] uppercase tracking-[0.5em] font-bold text-[#C5A059]">Julian Rossi</p>
-                <p className="text-[9px] uppercase tracking-[0.2em] text-gray-400 mt-2">Executive Head Chef</p>
-              </div>
-            </div>
-          </motion.div>
+         <motion.div 
+  initial={{ opacity: 0 }} 
+  whileInView={{ opacity: 1 }}
+  viewport={{ once: true }}
+  className="mt-32 p-12 md:p-20 text-center relative border border-black/5 bg-cover bg-center overflow-hidden"
+  style={{ 
+    backgroundImage: `url('https://images.unsplash.com/photo-1510812431401-41d2bd2722f3?auto=format&fit=crop&q=80&w=1500')` 
+  }}
+>
+  {/* Dark overlay taaki pic bhi dikhe aur text bhi clear ho */}
+  <div className="absolute inset-0 bg-black/30"></div>
+
+  <div className="max-w-3xl mx-auto space-y-8 relative z-10">
+    <Star className="text-[#C5A059] mx-auto mb-4" fill="currentColor" size={24} />
+    <h4 className="text-3xl md:text-4xl font-serif italic leading-snug text-white">
+      "Our mission is to create a symphony of flavors that resonates long after your final bite."
+    </h4>
+    <div className="pt-6">
+      <p className="text-[10px] uppercase tracking-[0.5em] font-bold text-[#C5A059]">Julian Rossi</p>
+      <p className="text-[9px] uppercase tracking-[0.2em] text-gray-200 mt-2">Executive Head Chef</p>
+    </div>
+  </div>
+</motion.div>
         </div>
       </section>
 {/* --- CONTACT SECTION (AS PER IMAGE) --- */}
@@ -555,32 +582,33 @@ const Page = () => {
               viewport={{ once: true }}
               className="space-y-10"
             >
-              <form className="space-y-10">
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-                  <div className="space-y-3">
-                    <label className="text-[10px] uppercase tracking-[0.2em] font-bold opacity-60">First Name</label>
-                    <input type="text" placeholder="First Name" className="w-full bg-transparent border-b border-black/20 pb-4 outline-none focus:border-[#C5A059] transition-colors placeholder:text-gray-300" />
-                  </div>
-                  <div className="space-y-3">
-                    <label className="text-[10px] uppercase tracking-[0.2em] font-bold opacity-60">Last Name</label>
-                    <input type="text" placeholder="Last Name" className="w-full bg-transparent border-b border-black/20 pb-4 outline-none focus:border-[#C5A059] transition-colors placeholder:text-gray-300" />
-                  </div>
-                </div>
+              
+<form className="space-y-10 border border-white/110 p-8 md:p-12 rounded-sm shadow-sm">
+  <div className="grid grid-cols-1 md:grid-cols-2 gap-8 ">
+    <div className="space-y-3">
+      <label className="text-[10px] uppercase tracking-[0.2em] font-bold opacity-60">First Name</label>
+      <input type="text" placeholder="First Name" className="w-full bg-transparent border-b border-black/20 pb-4 outline-none focus:border-[#C5A059] transition-colors placeholder:text-gray-300" />
+    </div>
+    <div className="space-y-3">
+      <label className="text-[10px] uppercase tracking-[0.2em] font-bold opacity-60">Last Name</label>
+      <input type="text" placeholder="Last Name" className="w-full bg-transparent border-b border-black/20 pb-4 outline-none focus:border-[#C5A059] transition-colors placeholder:text-gray-300" />
+    </div>
+  </div>
 
-                <div className="space-y-3">
-                  <label className="text-[10px] uppercase tracking-[0.2em] font-bold opacity-60">Email</label>
-                  <input type="email" placeholder="Enter Your Email" className="w-full bg-transparent border-b border-black/20 pb-4 outline-none focus:border-[#C5A059] transition-colors placeholder:text-gray-300" />
-                </div>
+  <div className="space-y-3">
+    <label className="text-[10px] uppercase tracking-[0.2em] font-bold opacity-60">Email</label>
+    <input type="email" placeholder="Enter Your Email" className="w-full bg-transparent border-b border-black/20 pb-4 outline-none focus:border-[#C5A059] transition-colors placeholder:text-gray-300" />
+  </div>
 
-                <div className="space-y-3">
-                  <label className="text-[10px] uppercase tracking-[0.2em] font-bold opacity-60">Message</label>
-                  <textarea rows={4} placeholder="Write a message...." className="w-full bg-transparent border-b border-black/20 pb-4 outline-none focus:border-[#C5A059] transition-colors resize-none placeholder:text-gray-300"></textarea>
-                </div>
+  <div className="space-y-3">
+    <label className="text-[10px] uppercase tracking-[0.2em] font-bold opacity-60">Message</label>
+    <textarea rows={4} placeholder="Write a message...." className="w-full bg-transparent border-b border-black/20 pb-4 outline-none focus:border-[#C5A059] transition-colors resize-none placeholder:text-gray-300"></textarea>
+  </div>
 
-                <button className="w-full bg-[#B38B4D] text-white font-serif text-2xl py-6 hover:bg-[#2D241E] transition-all duration-500 italic shadow-xl">
-                  Submit
-                </button>
-              </form>
+  <button className="w-full bg-[#B38B4D] text-white font-serif text-2xl py-6 hover:bg-[#2D241E] transition-all duration-500 italic shadow-xl">
+    Submit
+  </button>
+</form>
             </motion.div>
           </div>
         </div>
@@ -588,7 +616,7 @@ const Page = () => {
       
 
       {/* FOOTER */}
-      <footer className="bg-[#141414] text-white py-16 px-6 md:px-20 font-sans">
+      <footer className="bg-[#062C22] text-white py-16 px-6 md:px-20 font-sans">
       {/* Newsletter Section */}
       <div className="flex flex-col md:flex-row justify-between items-center border-b border-gray-800 pb-16 mb-16">
         <h2 className="text-4xl md:text-5xl font-serif mb-8 md:mb-0 max-w-sm leading-tight">
